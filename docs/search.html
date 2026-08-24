@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search - ShowFinder</title>
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    .search-container {
+      padding: 4rem 4%;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .search-title {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+    }
+    .search-input-wrapper {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto 3rem;
+    }
+    .search-input {
+      width: 100%;
+      padding: 1.25rem 2rem;
+      font-size: 1.25rem;
+      background: var(--bg-surface);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50px;
+      color: var(--text-primary);
+      transition: all 0.3s ease;
+      outline: none;
+    }
+    .search-input:focus {
+      background: var(--bg-surface-hover);
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 4px rgba(10, 132, 255, 0.1);
+    }
+    .search-input::placeholder {
+      color: var(--text-tertiary);
+    }
+    
+    .search-state-message {
+      color: var(--text-secondary);
+      font-size: 1.25rem;
+      margin-top: 2rem;
+    }
+    
+    @media (max-width: 768px) {
+      .search-title { font-size: 2rem; }
+      .search-input { font-size: 1rem; padding: 1rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  
+  <main class="page-content">
+    <div class="search-container">
+      <h1 class="search-title">Search TV Shows</h1>
+      <div class="search-input-wrapper">
+        <input type="text" id="search-input" class="search-input" placeholder="Type a show name..." autocomplete="off">
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="search-results" class="grid-container"></div>
+      <div id="search-state" class="search-state-message hidden"></div>
+    </div>
+  </main>
+
+  <script type="module" src="js/app.js"></script>
+  <script type="module" src="js/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse - ShowFinder</title>
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    .browse-header {
+      padding: 2rem 0;
+      text-align: center;
+    }
+    
+    .filters-scroll {
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 1rem 4%;
+      scrollbar-width: none;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 2rem;
+    }
+    .filters-scroll::-webkit-scrollbar { display: none; }
+    
+    .filter-chips {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    @media (max-width: 768px) {
+      .filter-chips {
+        justify-content: flex-start;
+      }
+    }
+
+    .chip {
+      padding: 0.5rem 1.25rem;
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+    
+    .chip:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-primary);
+    }
+    
+    .chip.active {
+      background: var(--text-primary);
+      color: var(--bg-primary);
+      font-weight: 600;
+    }
+    
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    
+    .sort-select {
+      background: var(--bg-surface);
+      color: var(--text-primary);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 0.5rem 1rem;
+      border-radius: var(--border-radius-button);
+      font-family: inherit;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  
+  <main class="page-content">
+    <div class="browse-header">
+      <h1>Browse Shows</h1>
+    </div>
+
+    <div class="filters-scroll">
+      <div class="filter-chips" id="genre-filters">
+        <button class="chip active" data-genre="All">All</button>
+        <button class="chip" data-genre="Drama">Drama</button>
+        <button class="chip" data-genre="Comedy">Comedy</button>
+        <button class="chip" data-genre="Action">Action</button>
+        <button class="chip" data-genre="Crime">Crime</button>
+        <button class="chip" data-genre="Thriller">Thriller</button>
+        <button class="chip" data-genre="Sci-Fi">Sci-Fi</button>
+        <button class="chip" data-genre="Fantasy">Fantasy</button>
+        <button class="chip" data-genre="Horror">Horror</button>
+        <button class="chip" data-genre="Romance">Romance</button>
+        <button class="chip" data-genre="Documentary">Documentary</button>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="controls">
+        <div id="results-count" style="color: var(--text-secondary);">Loading...</div>
+        <select id="sort-select" class="sort-select">
+          <option value="rating">Sort by: Rating</option>
+          <option value="name">Sort by: Name</option>
+          <option value="latest">Sort by: Latest</option>
+        </select>
+      </div>
+
+      <div id="browse-results" class="grid-container"></div>
+    </div>
+  </main>
+
+  <script type="module" src="js/app.js"></script>
+  <script type="module" src="js/browse.js"></script>
+</body>
+</html>
